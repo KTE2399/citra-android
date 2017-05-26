@@ -23,6 +23,15 @@ model {
                     sharedLibraryFile = file("${lib_distribution_root}/soundtouch/libs/${targetPlatform.getName()}/libsoundtouch.so")
                 }
             }
+
+            nihstro {
+                // Inform Android Studio where header file dir for this lib
+                headers.srcDir "${lib_distribution_root}/nihstro/include"
+                // Inform Android Studio where lib is -- each ABI should have a lib file
+                binaries.withType(SharedLibraryBinary) {
+                    sharedLibraryFile = file("${lib_distribution_root}/nihstro/libs/${targetPlatform.getName()}/libnihstro.so")
+                }
+            }
         }
     }
     android {
@@ -38,6 +47,7 @@ model {
         }
 
         ndk {
+            abiFilters.addAll(["armeabi-v7a", "arm64-v8a", "mips", "mips64", "x86", "x86_64"])
             moduleName "Citra"
             toolchain "clang"
             stl "gnustl_static"
@@ -54,6 +64,7 @@ model {
                     dependencies {
                         library "iconv" linkage "shared"
                         library "soundtouch" linkage "shared"
+                        library "nihstro" linkage "shared"
                     }
                 }
                 jniLibs {
@@ -67,6 +78,7 @@ model {
                     source {
                         srcDir "${lib_distribution_root}/iconv/lib"
                         srcDir "${lib_distribution_root}/soundtouch/lib"
+                        srcDir "${lib_distribution_root}/nihstro/lib"
                     }
                 }
             }
@@ -91,8 +103,8 @@ model {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
-    compile 'com.google.android.gms:play-services-ads:10.0.1'
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.google.android.gms:play-services-ads:10.2.6'
     compile 'com.github.bluejamesbond:textjustify-android:2.1.6'
 }
