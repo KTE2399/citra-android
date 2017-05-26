@@ -4,3 +4,6 @@
 [submodule "externals/soundtouch"]
 	path = externals/soundtouch
 	url = https://github.com/Kloen/soundtouch-android.git
+[submodule "externals/boost"]
+	path = externals/boost
+	url = https://github.com/Kloen/boost_163_android_r14b_complete_prebuilt.git
