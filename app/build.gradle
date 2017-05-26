@@ -23,6 +23,15 @@ model {
                     sharedLibraryFile = file("${lib_distribution_root}/soundtouch/libs/${targetPlatform.getName()}/libsoundtouch.so")
                 }
             }
+
+            nihstro {
+                // Inform Android Studio where header file dir for this lib
+                headers.srcDir "${lib_distribution_root}/nihstro/include"
+                // Inform Android Studio where lib is -- each ABI should have a lib file
+                binaries.withType(SharedLibraryBinary) {
+                    sharedLibraryFile = file("${lib_distribution_root}/nihstro/libs/${targetPlatform.getName()}/libnihstro.so")
+                }
+            }
         }
     }
     android {
@@ -55,6 +64,7 @@ model {
                     dependencies {
                         library "iconv" linkage "shared"
                         library "soundtouch" linkage "shared"
+                        library "nihstro" linkage "shared"
                     }
                 }
                 jniLibs {
@@ -68,6 +78,7 @@ model {
                     source {
                         srcDir "${lib_distribution_root}/iconv/lib"
                         srcDir "${lib_distribution_root}/soundtouch/lib"
+                        srcDir "${lib_distribution_root}/nihstro/lib"
                     }
                 }
             }
