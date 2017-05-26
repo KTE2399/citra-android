@@ -7,3 +7,6 @@
 [submodule "externals/boost"]
 	path = externals/boost
 	url = https://github.com/Kloen/boost_163_android_r14b_complete_prebuilt.git
+[submodule "externals/nihstro"]
+	path = externals/nihstro
+	url = https://github.com/Kloen/nihstro-android
