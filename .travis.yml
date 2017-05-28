@@ -7,10 +7,10 @@ env:
   - ANDROID_HOME=/usr/local/share/android-sdk ANDROID_NDK_HOME=/usr/local/Cellar/android-ndk/r14b
 
 install:
-  - brew tap caskroom/cask
+  - brew tap caskroom/cask > /dev/null # silence the very verbose output
   - brew update > /dev/null # silence the very verbose output
   - brew cask install android-sdk
-  - brew install android-ndk
+  - brew cask install android-ndk
   - echo y | android update sdk --no-ui --all --filter tools
   - echo y | android update sdk --no-ui --all --filter platform-tools
   - echo y | android update sdk --no-ui --all --filter build-tools-25.0.2
