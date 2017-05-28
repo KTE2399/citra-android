@@ -13,3 +13,6 @@
 [submodule "externals/fmt"]
 	path = externals/fmt
 	url = https://github.com/Kloen/fmt-android-prebuilt.git
+[submodule "externals/catch"]
+	path = externals/catch
+	url = https://github.com/Kloen/catch-android-prebuilt.git
