@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/externals/boost" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/externals/catch" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/externals/fmt" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/externals/iconv" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/externals/nihstro" vcs="Git" />
