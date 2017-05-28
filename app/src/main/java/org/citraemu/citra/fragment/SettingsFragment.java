@@ -11,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TabHost;
 
 import org.citraemu.citra.R;
 
@@ -39,16 +40,40 @@ public class SettingsFragment extends Fragment implements OnItemSelectedListener
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
 
-        Spinner spinner = (Spinner) view.findViewById(R.id.region_spinner);
+        Spinner region_spinner = (Spinner) view.findViewById(R.id.region_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this.getActivity(),
-                R.array.region_array, android.R.layout.simple_spinner_item);
+        ArrayAdapter<CharSequence> region_adapter = ArrayAdapter.createFromResource(
+                this.getActivity(), R.array.region_array, android.R.layout.simple_spinner_item);
         // Specify the layout to use when the list of choices appears
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        region_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         // Apply the adapter to the spinner
-        spinner.setAdapter(adapter);
+        region_spinner.setAdapter(region_adapter);
+        region_spinner.setOnItemSelectedListener(this);
 
-        spinner.setOnItemSelectedListener(this);
+        Spinner language_spinner = (Spinner) view.findViewById(R.id.config_language_sb);
+        // Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> language_adapter = ArrayAdapter.createFromResource(
+                this.getActivity(), R.array.language_array, android.R.layout.simple_spinner_item);
+        // Specify the layout to use when the list of choices appears
+        language_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        // Apply the adapter to the spinner
+        language_spinner.setAdapter(language_adapter);
+        language_spinner.setOnItemSelectedListener(this);
+
+        TabHost host = (TabHost)view.findViewById(R.id.config_tab_host);
+        host.setup();
+
+        //Tab 1
+        TabHost.TabSpec spec = host.newTabSpec(getString(R.string.config_tab_1));
+        spec.setContent(R.id.config_tab_1);
+        spec.setIndicator(getString(R.string.config_tab_1));
+        host.addTab(spec);
+
+        //Tab 2
+        spec = host.newTabSpec(getString(R.string.config_tab_2));
+        spec.setContent(R.id.config_tab_2);
+        spec.setIndicator(getString(R.string.config_tab_2));
+        host.addTab(spec);
 
         return view;
     }

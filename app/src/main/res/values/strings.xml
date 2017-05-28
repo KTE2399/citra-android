@@ -48,7 +48,29 @@
     <string name="region_chn" translatable="false">CHN</string>
     <string name="region_kor" translatable="false">KOR</string>
     <string name="region_twn" translatable="false">TWN</string>
-    
+    <string name="config_tab_1">Emulation</string>
+    <string name="config_tab_2">System</string>
+    <string name="config_user_name">Username</string>
+    <string name="config_birthday_tv">Birthday</string>
+    <string name="void_string" />
+    <string name="config_birth_change_bt">Change...</string>
+    <string name="config_user_name_tv">Citra</string>
+    <string name="config_consoleid_regen_bt">Regenerate</string>
+    <string name="config_consoleid_tv">Console ID</string>
+    <string name="config_language_tv">Language</string>
+    <string name="language_jp">Japanese (日本語)</string>
+    <string name="language_en">English</string>
+    <string name="language_fr">French (français)</string>
+    <string name="language_gr">German (Deutsch)</string>
+    <string name="language_it">Italian (italiano)</string>
+    <string name="language_sp">Spanish (español)</string>
+    <string name="language_ch">Simplified Chinese (简体中文)</string>
+    <string name="language_kr">Korean (한국어)</string>
+    <string name="language_dt">Dutch (Nederlands)</string>
+    <string name="language_pt">Portuguese (português)</string>
+    <string name="language_rs">Russian (Русский)</string>
+    <string name="language_tc">Traditional Chinese (正體中文)</string>
+
     <string-array name="region_array">
         <item>@string/region_jpn</item>
         <item>@string/region_usa</item>
@@ -57,5 +79,20 @@
         <item>@string/region_chn</item>
         <item>@string/region_kor</item>
         <item>@string/region_twn</item>
+    </string-array>
+
+    <string-array name="language_array">
+        <item>@string/language_jp</item>
+        <item>@string/language_en</item>
+        <item>@string/language_fr</item>
+        <item>@string/language_gr</item>
+        <item>@string/language_it</item>
+        <item>@string/language_sp</item>
+        <item>@string/language_ch</item>
+        <item>@string/language_kr</item>
+        <item>@string/language_dt</item>
+        <item>@string/language_pt</item>
+        <item>@string/language_rs</item>
+        <item>@string/language_tc</item>
     </string-array>
 </resources>

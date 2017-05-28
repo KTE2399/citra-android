@@ -24,4 +24,24 @@
     <string name="button_c_stick_right">C-Stick Dereita</string>
     <string name="button_c_stick_up">C-Stick Arriba</string>
     <string name="about_citra_description_part2">Citra soamente emula unha parte do hardware da 3DS, po-lo tanto, é xeralmente usado para lanzar/debugear aplicacións caseiras. Niste momento, Citra é capaz de lanzar varios xogos comerciais! Moitos disos, non chegan ata un estado xogable, pero estamos traballando cada día para avanzar o proxecto.</string>
+    <string name="config_tab_1">Emulación</string>
+    <string name="config_tab_2">Sistema</string>
+    <string name="config_user_name">Nome de usuario</string>
+    <string name="config_birthday_tv">Cumpleanos</string>
+    <string name="config_birth_change_bt">Cambiar...</string>
+    <string name="config_consoleid_regen_bt">Rexenar...</string>
+    <string name="config_consoleid_tv">ID da consola</string>
+    <string name="config_language_tv">Idioma</string>
+    <string name="language_jp">Japonés (日本語)</string>
+    <string name="language_en">Inglés (English)</string>
+    <string name="language_fr">Francés (français)</string>
+    <string name="language_gr">Alemán (Deutsch)</string>
+    <string name="language_it">Italiano (italiano)</string>
+    <string name="language_sp">Español</string>
+    <string name="language_ch">Chino Simplificado (简体中文)</string>
+    <string name="language_kr">Koreano (한국어)</string>
+    <string name="language_dt">Holandés (Nederlands)</string>
+    <string name="language_pt">Portugués (português)</string>
+    <string name="language_rs">Ruso (Русский)</string>
+    <string name="language_tc">Chino Tradicional (正體中文)</string>
 </resources>
