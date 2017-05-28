@@ -10,3 +10,6 @@
 [submodule "externals/nihstro"]
 	path = externals/nihstro
 	url = https://github.com/Kloen/nihstro-android
+[submodule "externals/fmt"]
+	path = externals/fmt
+	url = https://github.com/Kloen/fmt-android-prebuilt.git

@@ -32,6 +32,15 @@ model {
                     sharedLibraryFile = file("${lib_distribution_root}/nihstro/libs/${targetPlatform.getName()}/libnihstro.so")
                 }
             }
+
+            fmt {
+                // Inform Android Studio where header file dir for this lib
+                headers.srcDir "${lib_distribution_root}/fmt/include"
+                // Inform Android Studio where lib is -- each ABI should have a lib file
+                binaries.withType(StaticLibraryBinary) {
+                    staticLibraryFile = file("${lib_distribution_root}/fmt/libs/${targetPlatform.getName()}/libfmt.a")
+                }
+            }
         }
     }
     android {
@@ -65,6 +74,7 @@ model {
                         library "iconv" linkage "shared"
                         library "soundtouch" linkage "shared"
                         library "nihstro" linkage "shared"
+                        library "fmt" linkage "static"
                     }
                 }
                 jniLibs {
