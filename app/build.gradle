@@ -41,6 +41,15 @@ model {
                     staticLibraryFile = file("${lib_distribution_root}/fmt/libs/${targetPlatform.getName()}/libfmt.a")
                 }
             }
+
+            lcatch { // Catch
+                // Inform Android Studio where header file dir for this lib
+                headers.srcDir "${lib_distribution_root}/catch/include"
+                // Inform Android Studio where lib is -- each ABI should have a lib file
+                binaries.withType(StaticLibraryBinary) {
+                    staticLibraryFile = file("${lib_distribution_root}/catch/libs/${targetPlatform.getName()}/libcatch.a")
+                }
+            }
         }
     }
     android {
@@ -75,6 +84,7 @@ model {
                         library "soundtouch" linkage "shared"
                         library "nihstro" linkage "shared"
                         library "fmt" linkage "static"
+                        library "lcatch" linkage "static" // Catch
                     }
                 }
                 jniLibs {
