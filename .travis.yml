@@ -1,24 +1,26 @@
-os:
-  - osx
-
+os: osx
 language: android
 
-env:
-  - ANDROID_HOME=/usr/local/share/android-sdk ANDROID_NDK_HOME=/usr/local/Cellar/android-ndk/r14b
-
-install:
-  - brew tap caskroom/cask > /dev/null # silence the very verbose output
-  - brew update > /dev/null # silence the very verbose output
-  - brew cask install android-sdk
-  - brew cask install android-ndk
-  - echo y | android update sdk --no-ui --all --filter tools
-  - echo y | android update sdk --no-ui --all --filter platform-tools
-  - echo y | android update sdk --no-ui --all --filter build-tools-25.0.3
-  - echo y | android update sdk --no-ui --all --filter android-25
-  - echo y | android update sdk --no-ui --all --filter extra-google-m2repository
-  - echo y | android update sdk --no-ui --all --filter extra-google-google_play_services
-  - echo y | android update sdk --no-ui --all --filter extra-android-support
-  - echo y | android update sdk --no-ui --all --filter extra-android-m2repository
+before_install:
+  - export ANDROID_HOME=/usr/local/share/android-sdk
+  - export ANDROID_NDK=/usr/local/share/android-sdk/ndk-bundle
+  - export PATH=$ANDROID_HOME/emulator:$ANDROID_HOME/tools:$ANDROID_HOME/tools/bin:$ANDROID_HOME/platform-tools:$PATH
+  - brew update > /dev/null;
+  - brew install Caskroom/cask/android-sdk
+  # Tools
+  - echo y | sdkmanager 'tools'
+  # Platform tools
+  - echo y | sdkmanager 'platform-tools'
+  # SDKs
+  - echo y | sdkmanager 'platforms;android-25'
+  # build tools
+  - echo y | sdkmanager 'build-tools;25.0.3'
+  # Extras
+  - echo y | sdkmanager 'extras;android;m2repository'
+  - echo y | sdkmanager 'extras;google;google_play_services'
+  - echo y | sdkmanager 'extras;google;m2repository'
+  # NDK
+  - echo y | sdkmanager 'ndk-bundle'
    
 script:
   - chmod +x ./gradlew
