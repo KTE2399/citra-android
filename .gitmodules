@@ -16,3 +16,6 @@
 [submodule "externals/catch"]
 	path = externals/catch
 	url = https://github.com/Kloen/catch-android-prebuilt.git
+[submodule "externals/shaderc"]
+	path = externals/shaderc
+	url = https://github.com/Kloen/shaderc-prebuilt.git
