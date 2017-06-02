@@ -57,7 +57,7 @@ public class GameListAdapter extends BaseAdapter {
 
         Game item = this.items.get(position);
         tvTitle.setText(item.getTitle());
-        tvSize.setText(Double.toString(item.getSize()));
+        tvSize.setText(Double.toString(item.getSize()) + "MB");
         ivItem.setImageResource(item.getImage());
 
         return rowView;
