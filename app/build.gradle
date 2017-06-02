@@ -50,6 +50,15 @@ model {
                     staticLibraryFile = file("${lib_distribution_root}/catch/libs/${targetPlatform.getName()}/libcatch.a")
                 }
             }
+
+            shaderc {
+                // Inform Android Studio where header file dir for this lib
+                headers.srcDir "${lib_distribution_root}/shaderc/include"
+                // Inform Android Studio where lib is -- each ABI should have a lib file
+                binaries.withType(StaticLibraryBinary) {
+                    staticLibraryFile = file("${lib_distribution_root}/shaderc/libs/${targetPlatform.getName()}/libshaderc.a")
+                }
+            }
         }
     }
     android {
@@ -85,6 +94,7 @@ model {
                         library "nihstro" linkage "shared"
                         library "fmt" linkage "static"
                         library "lcatch" linkage "static" // Catch
+                        library "shaderc" linkage "static"
                     }
                 }
                 jniLibs {
