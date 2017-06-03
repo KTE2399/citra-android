@@ -6,6 +6,8 @@
 
 Unofficial port of [Citra](https://github.com/citra-emu/citra) to Android
 
+- Base Commit: [citra-emu/citra@e46ec64](https://github.com/citra-emu/citra/commit/e46ec64690328b74832b6516459d0bb0ea17eb8f)
+
 ## Known Requirements
 
 * Android 7.0 or superior.
