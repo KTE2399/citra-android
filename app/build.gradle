@@ -59,6 +59,45 @@ model {
                     staticLibraryFile = file("${lib_distribution_root}/shaderc/libs/${targetPlatform.getName()}/libshaderc.a")
                 }
             }
+
+            boost {
+                // Inform Android Studio where header file dir for this lib
+                headers.srcDir "${lib_distribution_root}/boost/include"
+                // Inform Android Studio where lib is -- each ABI should have a lib file
+                binaries.withType(StaticLibraryBinary) {
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_atomic.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_chrono.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_container.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_context.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_coroutine.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_date_time.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_exception.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_filesystem.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_graph.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_iostreams.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_locale.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_log.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_log_setup.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_math_c99.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_math_c99f.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_math_c99l.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_math_tr1.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_math_tr1f.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_math_tr1l.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_program_options.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_python.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_random.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_regex.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_serialization.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_signals.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_system.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_thread.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_timer.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_type_erasure.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_wave.a")
+                    staticLibraryFile = file("${lib_distribution_root}/boost/libs/${targetPlatform.getName()}/libboost_wserialization.a")
+                }
+            }
         }
     }
     android {
@@ -95,6 +134,7 @@ model {
                         library "fmt" linkage "static"
                         library "lcatch" linkage "static" // Catch
                         library "shaderc" linkage "static"
+                        library "boost" linkage "static"
                     }
                 }
                 jniLibs {

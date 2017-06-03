@@ -4,13 +4,16 @@
 
 #pragma once
 
-#include "common_types.h"
+#if !defined(ARCHITECTURE_x86_64) && !defined(_M_ARM)
+#include <cstdlib> // for exit
+#endif
+#include "common/common_types.h"
 
 #define ARRAY_SIZE(a) (sizeof(a) / sizeof(a[0]))
 
 /// Textually concatenates two tokens. The double-expansion is required by the C preprocessor.
 #define CONCAT2(x, y) DO_CONCAT2(x, y)
-#define DO_CONCAT2(x, y) x ## y
+#define DO_CONCAT2(x, y) x##y
 
 // helper macro to properly align structure members.
 // Calling INSERT_PADDING_BYTES will add a new member variable with a name like "pad121",
@@ -20,9 +23,9 @@
 
 // Inlining
 #ifdef _WIN32
-    #define FORCE_INLINE __forceinline
+#define FORCE_INLINE __forceinline
 #else
-    #define FORCE_INLINE inline __attribute__((always_inline))
+#define FORCE_INLINE inline __attribute__((always_inline))
 #endif
 
 #ifndef _MSC_VER
@@ -42,7 +45,8 @@
 #else
 inline u32 rotl(u32 x, int shift) {
     shift &= 31;
-    if (!shift) return x;
+    if (!shift)
+        return x;
     return (x << shift) | (x >> (32 - shift));
 }
 #endif
@@ -52,34 +56,41 @@ inline u32 rotl(u32 x, int shift) {
 #else
 inline u32 rotr(u32 x, int shift) {
     shift &= 31;
-    if (!shift) return x;
+    if (!shift)
+        return x;
     return (x >> shift) | (x << (32 - shift));
 }
 #endif
 
-inline u64 _rotl64(u64 x, unsigned int shift){
+inline u64 _rotl64(u64 x, unsigned int shift) {
     unsigned int n = shift % 64;
     return (x << n) | (x >> (64 - n));
 }
 
-inline u64 _rotr64(u64 x, unsigned int shift){
+inline u64 _rotr64(u64 x, unsigned int shift) {
     unsigned int n = shift % 64;
     return (x >> n) | (x << (64 - n));
 }
 
 #else // _MSC_VER
-    #if (_MSC_VER < 1900)
-        // Function Cross-Compatibility
-        #define snprintf _snprintf
-    #endif
 
-    // Locale Cross-Compatibility
-    #define locale_t _locale_t
+#if (_MSC_VER < 1900)
+// Function Cross-Compatibility
+#define snprintf _snprintf
+#endif
 
-    extern "C" {
-        __declspec(dllimport) void __stdcall DebugBreak(void);
-    }
-    #define Crash() {DebugBreak();}
+// Locale Cross-Compatibility
+#define locale_t _locale_t
+
+extern "C" {
+__declspec(dllimport) void __stdcall DebugBreak(void);
+}
+#define Crash() DebugBreak()
+
+// cstdlib provides these on MSVC
+#define rotr _rotr
+#define rotl _rotl
+
 #endif // _MSC_VER ndef
 
 // Generic function to get last error message.
