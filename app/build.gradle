@@ -119,6 +119,7 @@ model {
             stl "gnustl_static"
             ldLibs.addAll(["atomic", "log", "GLESv2"])
             cppFlags.addAll(['-std=c++14',
+                             '-DANDROID=1',
                              '-I' + file('src/main/jni'),
                              '-I' + file('src/main/jni/common'),
                              '-I' + file('src/main/jni/common/logging')])

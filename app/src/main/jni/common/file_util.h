@@ -172,7 +172,7 @@ public:
     size_t ReadArray(T* data, size_t length) {
         static_assert(std::is_standard_layout<T>(),
                       "Given array does not consist of standard layout objects");
-#if (__GNUC__ >= 5) || defined(__clang__) || defined(_MSC_VER)
+#if ((__GNUC__ >= 5) || defined(__clang__) || defined(_MSC_VER)) && !defined(ANDROID)
         static_assert(std::is_trivially_copyable<T>(),
                       "Given array does not consist of trivially copyable objects");
 #endif
@@ -193,7 +193,7 @@ public:
     size_t WriteArray(const T* data, size_t length) {
         static_assert(std::is_standard_layout<T>(),
                       "Given array does not consist of standard layout objects");
-#if (__GNUC__ >= 5) || defined(__clang__) || defined(_MSC_VER)
+#if ((__GNUC__ >= 5) || defined(__clang__) || defined(_MSC_VER)) && !defined(ANDROID)
         static_assert(std::is_trivially_copyable<T>(),
                       "Given array does not consist of trivially copyable objects");
 #endif
