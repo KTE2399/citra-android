@@ -116,7 +116,7 @@ model {
             abiFilters.addAll(["armeabi-v7a", "arm64-v8a", "mips", "mips64", "x86", "x86_64"])
             moduleName "Citra"
             toolchain "clang"
-            stl "gnustl_static"
+            stl "c++_static"
             ldLibs.addAll(["atomic", "log", "GLESv2"])
             cppFlags.addAll(['-std=c++14',
                              '-DANDROID=1',
