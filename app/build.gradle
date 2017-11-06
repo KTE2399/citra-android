@@ -101,19 +101,19 @@ model {
         }
     }
     android {
-        compileSdkVersion 25
-        buildToolsVersion "25.0.3"
+        compileSdkVersion 27
+        buildToolsVersion "27.0.0"
 
         defaultConfig {
             applicationId "org.citraemu.citra"
             minSdkVersion.apiLevel 24
-            targetSdkVersion.apiLevel 25
+            targetSdkVersion.apiLevel 27
             versionCode 1
             versionName "1.0"
         }
 
         ndk {
-            abiFilters.addAll(["armeabi-v7a", "arm64-v8a", "mips", "mips64", "x86", "x86_64"])
+            abiFilters.addAll(["armeabi-v7a", "arm64-v8a", "mips64", "x86", "x86_64"])
             moduleName "Citra"
             toolchain "clang"
             stl "c++_static"
@@ -174,8 +174,8 @@ model {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
-    compile 'com.android.support:appcompat-v7:25.3.1'
-    compile 'com.android.support:design:25.3.1'
-    compile 'com.google.android.gms:play-services-ads:11.0.0'
+    compile 'com.android.support:appcompat-v7:27.0.0'
+    compile 'com.android.support:design:27.0.0'
+    compile 'com.google.android.gms:play-services-ads:11.4.2'
     compile 'com.github.bluejamesbond:textjustify-android:2.1.6'
 }
