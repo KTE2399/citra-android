@@ -41,7 +41,7 @@ build_script:
   - gradlew test
   - gradlew build --stacktrace
 artifacts:
- - path: ''
+ - path: 'build'
    name: 'Test'
    type: zip
 test: off
