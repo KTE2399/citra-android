@@ -34,9 +34,14 @@ install:
   - echo y | C:\android-sdk\tools\bin\sdkmanager ndk-bundle
 
 build_script:
+  - set ANDROID_HOME=C:\android-sdk
+  - set ANDROID_NDK_HOME=C:\android-sdk\ndk-bundle
   - cd c:\projects\citra-android 
   - gradlew dependencies
   - gradlew test
   - gradlew build --stacktrace
-
+artifacts:
+ - path: ''
+   name: 'Test'
+   type: zip
 test: off
